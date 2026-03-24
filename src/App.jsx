@@ -1,11 +1,11 @@
-import React from 'react'
+import Navbar from "#components/Navbar"
 
 const App = () => {
   return (
-    <div>
-      <h1>Hola!! Got a New Project Idea</h1>
-    </div>
+    <main>
+      <Navbar />
+    </main>
   )
 }
-
+ 
 export default App

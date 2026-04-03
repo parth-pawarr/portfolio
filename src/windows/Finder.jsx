@@ -2,11 +2,13 @@ import { WindowControls } from "#components"
 import { locations } from "#constants"
 import WindowWrapper from "#hoc/WindowWrapper"
 import useLocationStore from "#store/location"
+import useWindowStore from "#store/window"
 import { Search } from "lucide-react"
 import clsx from "clsx"
 
 const Finder = () => {
-    const { openWindow, activeLocation, setActiveLocation } = useLocationStore()
+    const { openWindow } = useWindowStore()
+    const { activeLocation, setActiveLocation } = useLocationStore()
 
     const openItem = (item) => {
         if (item.fileType === "pdf") return openWindow("resume")
@@ -71,6 +73,7 @@ const Finder = () => {
                             onClick={() => openItem(item)}
                         >
                             <img src={item.icon} alt={item.name} />
+                            <p className="text-xs mt-1 truncate max-w-16">{item.name}</p>
                         </li>
                     ))}
                 </ul>

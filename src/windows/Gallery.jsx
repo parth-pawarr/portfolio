@@ -1,8 +1,10 @@
 import { WindowControls } from "#components"
 import WindowWrapper from "#hoc/WindowWrapper"
 import { gallery } from "#constants"
+import useWindowStore from "#store/window"
 
 const Gallery = () => {
+  const { openWindow } = useWindowStore()
   return (
     <>
         <div id="window-header">
@@ -23,6 +25,7 @@ const Gallery = () => {
                             gridColumn: index % 5 === 0 ? 'span 2' : 'span 1',
                             gridRow: index % 4 === 0 ? 'span 2' : 'span 1'
                         }}
+                        onClick={() => openWindow("imgfile", { name: `Gallery ${item.id}`, imageUrl: item.img })}
                     >
                         <img 
                             src={item.img} 

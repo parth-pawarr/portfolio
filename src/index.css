@@ -257,7 +257,7 @@ body {
   }
 
   #photos {
-    @apply max-w-3xl absolute top-96 left-1/2 -translate-y-1/2 bg-white dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100 border border-white/5 dark:border-white/10 shadow-2xl rounded-xl overflow-hidden transition-colors duration-300;
+    @apply w-[750px] h-[480px] absolute top-96 left-1/2 -translate-y-1/2 bg-white dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100 border border-white/5 dark:border-white/10 shadow-2xl rounded-xl overflow-hidden transition-colors duration-300;
 
     .sidebar {
       @apply w-3/12 flex-none bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 flex flex-col p-5 transition-colors duration-300;

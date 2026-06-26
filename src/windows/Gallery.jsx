@@ -12,7 +12,10 @@ const Gallery = () => {
             <h2>Gallery</h2>
         </div>
 
-        <div className="gallery-container overflow-y-auto h-full p-4 bg-white dark:bg-zinc-950 transition-colors duration-300">
+        <div 
+          className="gallery-container overflow-y-auto h-[436px] mac-scrollbar p-4 bg-white dark:bg-zinc-950 transition-colors duration-300 select-none touch-pan-y" 
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
             <div className="bento-grid grid gap-4" style={{
                 gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
                 gridAutoRows: 'minmax(200px, auto)'

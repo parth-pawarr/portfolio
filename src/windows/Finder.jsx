@@ -72,7 +72,14 @@ const Finder = () => {
                             className={item.position}
                             onClick={() => openItem(item)}
                         >
-                            <img src={item.icon} alt={item.name} />
+                            <img 
+                                src={item.fileType === "img" ? item.imageUrl : item.icon} 
+                                alt={item.name}
+                                className={clsx(
+                                    "w-14 h-14 rounded transition-transform group-hover:scale-105",
+                                    item.fileType === "img" ? "object-cover border border-zinc-200 dark:border-zinc-800 shadow-sm" : "object-contain"
+                                )}
+                            />
                             <p className="text-xs mt-1 truncate max-w-16">{item.name}</p>
                         </li>
                     ))}

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { WindowControls } from "#components"
 import WindowWrapper from "#hoc/WindowWrapper"
 import { Download } from "lucide-react"
@@ -15,6 +15,17 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 const Resume = () => {
   const [numPages, setNumPages] = useState(null)
+  const [pageWidth, setPageWidth] = useState(550)
+
+  useEffect(() => {
+    const handleResize = () => {
+      const w = Math.min(window.innerWidth - 64, 550)
+      setPageWidth(w)
+    }
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages)
@@ -30,16 +41,23 @@ const Resume = () => {
         </a>
       </div>
 
-      <Document file="files/resume.pdf" onLoadSuccess={onDocumentLoadSuccess}>
-        {Array.from(new Array(numPages), (_, index) => (
-          <Page
-            key={index}
-            pageNumber={index + 1}
-            renderAnnotationLayer
-            renderTextLayer
-          />
-        ))}
-      </Document>
+      <div 
+        className="overflow-y-auto max-h-[65vh] w-full mac-scrollbar bg-gray-100 flex flex-col items-center py-4 px-6 select-none touch-pan-y" 
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        <Document file="files/resume.pdf" onLoadSuccess={onDocumentLoadSuccess} className="flex flex-col gap-4">
+          {Array.from(new Array(numPages), (_, index) => (
+            <div key={index} className="shadow-lg rounded border border-gray-200 bg-white">
+              <Page
+                pageNumber={index + 1}
+                renderAnnotationLayer={false}
+                renderTextLayer={false}
+                width={pageWidth}
+              />
+            </div>
+          ))}
+        </Document>
+      </div>
     </>
   )
 }

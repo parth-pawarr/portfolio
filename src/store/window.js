@@ -7,6 +7,9 @@ const useWindowStore = create(
         windows: WINDOW_CONFIG,
         nextZIndex: INITIAL_Z_INDEX + 1,
 
+        isSpotlightOpen: false,
+        isControlCenterOpen: false,
+
         openWindow: (windowKey, data = null) => set((state) => {
             const win = state.windows[windowKey];
             if(!win) return
@@ -26,6 +29,20 @@ const useWindowStore = create(
         focusWindow: (windowKey) => set((state) => {
             const win = state.windows[windowKey];
             win.zIndex = state.nextZIndex++;
+        }),
+
+        toggleSpotlight: (val) => set((state) => {
+            state.isSpotlightOpen = val !== undefined ? val : !state.isSpotlightOpen;
+            if (state.isSpotlightOpen) {
+                state.isControlCenterOpen = false;
+            }
+        }),
+
+        toggleControlCenter: (val) => set((state) => {
+            state.isControlCenterOpen = val !== undefined ? val : !state.isControlCenterOpen;
+            if (state.isControlCenterOpen) {
+                state.isSpotlightOpen = false;
+            }
         }),
     }))
 );

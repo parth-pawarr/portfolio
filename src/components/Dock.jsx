@@ -78,7 +78,7 @@ const Dock = () => {
         <div ref={dockRef} className='dock-container'>
             {
                 dockApps.map(({id, name, icon, canOpen}) => (
-                    <div key={id} className='relative flex justify-center'>
+                    <div key={id} className='relative flex flex-col items-center justify-center pb-2'>
                         <button 
                         type='button' 
                         className='dock-icon'
@@ -94,7 +94,9 @@ const Dock = () => {
                             loading='lazy'
                             className={canOpen ? '' : "opacity-60"} />
                         </button>
-
+                        {windows[id]?.isOpen && (
+                            <span className="absolute bottom-0.5 size-1 rounded-full bg-black/60 dark:bg-white/80" />
+                        )}
                     </div>
                 ))
             }

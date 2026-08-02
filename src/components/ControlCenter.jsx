@@ -78,7 +78,7 @@ const ControlCenter = () => {
             
             osc.start();
             osc.stop(ctx.currentTime + 0.08);
-        } catch (err) {
+        } catch {
             // Audio context failed or blocked by browser policy
         }
     };

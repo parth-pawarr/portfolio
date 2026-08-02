@@ -81,16 +81,20 @@ const Spotlight = () => {
 
     // Handle open/close GSAP animations
     useEffect(() => {
-        if (isSpotlightOpen) {
+        if (!isSpotlightOpen) return;
+
+        const resetTimer = window.setTimeout(() => {
             setSearch("");
             setSelectedIndex(0);
-            setTimeout(() => inputRef.current?.focus(), 50);
-            
-            gsap.fromTo(containerRef.current,
-                { scale: 0.95, opacity: 0, y: -20 },
-                { scale: 1, opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }
-            );
-        }
+            inputRef.current?.focus();
+        }, 0);
+
+        gsap.fromTo(containerRef.current,
+            { scale: 0.95, opacity: 0, y: -20 },
+            { scale: 1, opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }
+        );
+
+        return () => window.clearTimeout(resetTimer);
     }, [isSpotlightOpen]);
 
     const handleSelect = (item) => {

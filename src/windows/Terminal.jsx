@@ -9,7 +9,7 @@ import dayjs from "dayjs";
 
 const Terminal = () => {
   const { openWindow } = useWindowStore();
-  const { isDarkMode, toggleDarkMode, setWallpaper } = useSettingsStore();
+  const { isDarkMode, toggleDarkMode } = useSettingsStore();
 
   const [inputVal, setInputVal] = useState("");
   const terminalEndRef = useRef(null);

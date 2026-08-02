@@ -9,10 +9,14 @@ const Wallpaper = () => {
     const activeImgRef = useRef(null);
 
     useEffect(() => {
-        if (wallpaper !== currentImg) {
+        if (wallpaper === currentImg) return;
+
+        const transitionTimer = window.setTimeout(() => {
             setPrevImg(currentImg);
             setCurrentImg(wallpaper);
-        }
+        }, 0);
+
+        return () => window.clearTimeout(transitionTimer);
     }, [wallpaper, currentImg]);
 
     useEffect(() => {

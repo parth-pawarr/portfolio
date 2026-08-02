@@ -6,5 +6,8 @@ import Text from "./Text"
 import Image from "./Image"
 import Contact from "./Contact"
 import Gallery from "./Gallery"
+import Snake from "./Snake"
+import Shooter from "./Shooter"
+import Minesweeper from "./Minesweeper"
 
-export{ Terminal, Safari, Resume, Finder, Text, Image, Contact, Gallery }
+export{ Terminal, Safari, Resume, Finder, Text, Image, Contact, Gallery, Snake, Shooter, Minesweeper }

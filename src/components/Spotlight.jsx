@@ -23,35 +23,24 @@ const Spotlight = () => {
         { id: "resume", name: "Resume (Preview)", type: "System App", icon: "/images/pdf.png", desc: "View or download official resume", action: () => openWindow("resume") },
         // Projects
         { 
-            id: "nike", 
-            name: "Nike Ecommerce Storefront", 
+            id: "neuroswarm", 
+            name: "NeuroSwarm", 
             type: "Project", 
             icon: "/images/folder.png", 
-            desc: "Next.js & Tailwind responsive shopping application", 
+            desc: "Neuroevolution AI simulation using Java", 
             action: () => {
                 setActiveLocation(locations.work?.children?.[0]);
                 openWindow("finder");
             }
         },
         { 
-            id: "resume-analyzer", 
-            name: "AI Resume Analyzer", 
+            id: "nesya", 
+            name: "NESYA", 
             type: "Project", 
             icon: "/images/folder.png", 
-            desc: "AI powered recruiter scoring and feedback engine", 
+            desc: "Neuro-Symbolic AI system for legal assistance", 
             action: () => {
                 setActiveLocation(locations.work?.children?.[1]);
-                openWindow("finder");
-            }
-        },
-        { 
-            id: "food-delivery", 
-            name: "Food Delivery App", 
-            type: "Project", 
-            icon: "/images/folder.png", 
-            desc: "React Native & Expo cross platform mobile application", 
-            action: () => {
-                setActiveLocation(locations.work?.children?.[2]);
                 openWindow("finder");
             }
         },

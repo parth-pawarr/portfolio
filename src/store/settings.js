@@ -3,11 +3,11 @@ import { immer } from "zustand/middleware/immer"
 
 const useSettingsStore = create(
     immer((set) => ({
-        wallpaper: "/images/wallpaper.jpg",
+        wallpaper: "/images/wallpaper1.png",
         brightness: 100,
         volume: 80,
         wifi: true,
-        isDarkMode: false,
+        isDarkMode: true,
 
         setWallpaper: (path) => set((state) => {
             state.wallpaper = path

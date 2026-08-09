@@ -1,8 +1,12 @@
 import { WindowControls } from "#components";
 import WindowWrapper from "#hoc/WindowWrapper";
 import FlappyBirdApp from "../components/Games/flappyBird";
+import useWindowStore from "#store/window";
 
 const FlappyBird = () => {
+  const { activeWindow, windows } = useWindowStore();
+  const isFocused = activeWindow === "flappybird" && windows.flappybird?.isOpen;
+
   return (
     <>
       <div id="window-header">
@@ -11,7 +15,7 @@ const FlappyBird = () => {
       </div>
 
       <div className="flex-1 w-full h-full relative" style={{ width: '400px', height: '600px' }}>
-        <FlappyBirdApp />
+        <FlappyBirdApp isFocused={isFocused} />
       </div>
     </>
   );

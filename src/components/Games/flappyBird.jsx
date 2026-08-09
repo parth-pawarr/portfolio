@@ -333,7 +333,7 @@ function DarkModeToggle({ isDarkMode, onToggle }) {
  * 5. MAIN APP COMPONENT
  * -------------------------------------------------------------------------- */
 
-export default function App() {
+export default function App({ isFocused = true }) {
     // 'start' | 'countdown' | 'playing' | 'paused' | 'gameover'
     const [status, setStatus] = useState('start');
     const [gameData, setGameData] = useState(createInitialGameData);
@@ -503,6 +503,10 @@ export default function App() {
     // Keyboard controls: Space to flap/start/restart, P to pause/resume.
     useEffect(() => {
         const onKeyDown = (e) => {
+            if (!isFocused) return;
+            // Additional fallback: ignore if the active element is an input
+            if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
             if (e.code === 'Space') {
                 e.preventDefault();
                 handleFlap();
@@ -512,7 +516,7 @@ export default function App() {
         };
         window.addEventListener('keydown', onKeyDown);
         return () => window.removeEventListener('keydown', onKeyDown);
-    }, [handleFlap, togglePause]);
+    }, [handleFlap, togglePause, isFocused]);
 
     const { speed: currentPipeSpeed } = getDifficultySettings(gameData.score);
 

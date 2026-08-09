@@ -1,7 +1,7 @@
 import { Dock, Home, Navbar, Welcome, Wallpaper, Spotlight, ControlCenter } from "#components";
 import { Draggable } from "gsap/Draggable"
 import gsap from "gsap";
-import { Terminal, Safari, Resume, Finder, Text, Image, Contact, Gallery, Snake, Shooter, Minesweeper } from "#windows";
+import { Terminal, Safari, Resume, Finder, Text, Image, Contact, Gallery, FlappyBird, Shooter } from "#windows";
 import useSettingsStore from "#store/settings";
 gsap.registerPlugin(Draggable)
 
@@ -28,9 +28,8 @@ const App = () => {
       <Contact/>
       <Home/>
       <Gallery/>
-      <Snake />
+      <FlappyBird />
       <Shooter />
-      <Minesweeper />
 
       {brightnessOpacity > 0 && (
         <div 

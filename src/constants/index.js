@@ -55,21 +55,9 @@ const dockApps = [
     canOpen: true,
   },
   {
-    id: "snake",
-    name: "Dev Snake",
+    id: "flappybird",
+    name: "Flappy Bird",
     icon: "snake.png",
-    canOpen: true,
-  },
-  // {
-  //   id: "shooter",
-  //   name: "Bug Shooter",
-  //   icon: "shooter.png",
-  //   canOpen: true,
-  // },
-  {
-    id: "minesweeper",
-    name: "Minesweeper",
-    icon: "minesweeper.png",
     canOpen: true,
   },
   {
@@ -645,9 +633,8 @@ const WINDOW_CONFIG = {
   safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  snake: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  flappybird: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   shooter: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  minesweeper: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
